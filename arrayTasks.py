@@ -83,7 +83,21 @@ fibbonachiArr(11)
 # 8. Заполнить массив заданной длины различными простыми числами. Натуральное число,
 # большее единицы, называется простым, если оно делится только на себя и на единицу.
 
-print('- Task #8 - Не решена. Не понятно как определять простоту числа')
+def array8():
+    arr = []
+    arr1 = []
+    for i in range (10000):
+        arr.append(i)
+    for j in arr:
+        count = 0
+
+        for k in range (j):
+            if j % (k+1) == 0:
+                count = count + 1
+        if count == 2:
+            arr1.append(j)
+    print('Task #8 - ', arr1)
+array8()
 
 # 9. Создать массив, каждый элемент которого равен квадрату своего номера.
 
@@ -225,8 +239,62 @@ doArray16()
 
 def doArray17():
     arr = []
-    for i in range (15):
-        arr.append(random.randint(0,2))
-    print(arr)
 
+    for j in range(20):
+        arr.append(random.randint(0, 2))
+
+
+
+    count_1 = arr.count(1)
+    count_0_2 = arr.count(0) + arr.count(2)
+
+    cou = abs(count_0_2 - count_1)
+
+    if arr.count(1) > (arr.count(0) + arr.count(2)):
+        for z in range(cou):
+            arr.remove(1)
+    elif arr.count(1) < (arr.count(0) + arr.count(2)):
+        for z in range(cou):
+            if arr.count(0) > arr.count(2):
+                arr.remove(0)
+            else:
+                arr.remove(2)
+
+    q1 = arr.index(1)
+    q2 = arr.index(2)
+
+    if q1 < q2:
+        arr[q1] = arr[q2]
+        arr[q2] = 1
+    print('Task #17 -',arr)
 doArray17()
+
+# 19. Определить, содержит ли массив данное число x
+
+def array19():
+    def arr19():
+        arr = list()
+        for i in range(31):
+            arr.append(random.randint(0, 25))
+        print(arr)
+        x = random.randint(0, 25)
+        for j in arr:
+            if j == x:
+                print('Task #19 -','Число', x, 'содержится в массиве')
+                break
+array19()
+
+# 20. Найти количество четных чисел в массиве.
+
+def array20():
+    arr = list()
+    for i in range(31):
+        arr.append(random.randint(0, 25))
+
+    count = 0
+    for j in arr:
+        if j % 2 == 0:
+            count = count + 1
+    print("Task #20 -",'В архиве', count, 'четных чисел')
+    print("          ",arr)
+array20()
